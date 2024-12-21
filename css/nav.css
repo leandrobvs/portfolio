@@ -1,0 +1,24 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 100px;
+  background-color: #edc339;
+  width: 1400px;
+  margin: 0 auto;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+  font-family: 'Montserrat', serif;
+  font-weight: 500;
+  font-size: 1.8rem;
+  color: #034968;
+}
+
+.lang-switcher {
+  background-color: rgba(#503e03, 0.5);
+  padding: 10px;
+}
