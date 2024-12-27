@@ -1,5 +1,7 @@
 @import url(../css/nav.css);
 @import url(../css/content.css);
+@import url(../css/aboutme.css);
+@import url(../css/portfolio.css);
 
 * {
   padding: 0;
