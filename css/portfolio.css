@@ -53,6 +53,7 @@
   height: 180px;
   align-self: center;
   border-radius: 7px;
+  box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.3);
 }
 
 .header-img-card {
@@ -77,4 +78,23 @@
   padding: 0 20px;
   font-family: 'Montserrat', serif;
   font-size: 1.6rem;
+}
+
+.effect {
+  top: 0px;
+  position: relative;
+  border-radius: 4px;
+  text-decoration: none;
+  z-index: 0;
+  overflow: hidden;
+  box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease-out;
+  &:hover {
+    transition: all 0.3s ease-out;
+    top: -13px;
+    background-color: white;
+  }
+  &:hover:before {
+    transform: scale(2.15);
+  }
 }
