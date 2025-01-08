@@ -42,6 +42,14 @@
   text-align: left;
   display: flex;
   flex-direction: column;
-  gap: 60px;
+  gap: 30px;
   padding-bottom: 100px;
+}
+
+.lista-me {
+  padding: 0 30px;
+}
+
+.lista-me li {
+  padding-bottom: 10px;
 }
