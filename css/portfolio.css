@@ -98,3 +98,7 @@
     transform: scale(2.15);
   }
 }
+
+.card-content p {
+  padding-left: 10px;
+}
