@@ -47,27 +47,27 @@
         <h1>A Jornada de uma Loja de Pesca para o Universo Data-Driven</h1>
       </div>
       <div class="sumario">
-        <h2>Sumário</h2>
+        <h2 id="sumario">Sumário</h2>
         <ul>
           <li><a href="#proposito">Propósito</a></li>
-          <li><a href="#contexto-projeto">Contexto do Projeto</a></li>
+          <li><a href="#contexto_projeto">Contexto do Projeto</a></li>
           <li>
-            <a href="#fontes-dados">Fontes de Dados</a>
+            <a href="#fontes_dados">Fontes de Dados</a>
             <ul>
               <li><a href="#erp">ERP</a></li>
               <li><a href="#crm">CRM</a></li>
-              <li><a href="#outras-fontes">Outras Fontes (APIs, Planilhas, etc.)</a></li>
+              <li><a href="#outras_fontes">Outras Fontes (APIs, Planilhas, etc.)</a></li>
             </ul>
           </li>
           <li>
-            <a href="#processo-etl">Processo ETL</a>
+            <a href="#processo_etl">Processo ETL</a>
             <ul>
               <li><a href="#extracao">Extração dos Dados</a></li>
               <li>
                 <a href="#transformacao">Transformação e Tratamento</a>
                 <ul>
                   <li><a href="#limpeza">Limpeza de Dados</a></li>
-                  <li><a href="#tratamento-dados-faltantes">Tratamento de Dados Faltantes</a></li>
+                  <li><a href="#tratamento_dados_faltantes">Tratamento de Dados Faltantes</a></li>
                   <li><a href="#formatacao">Formatação e Padronização</a></li>
                 </ul>
               </li>
@@ -77,15 +77,15 @@
           <li>
             <a href="#armazenamento">Armazenamento e Modelagem</a>
             <ul>
-              <li><a href="#estruturacao-tabelas">Estruturação das Tabelas</a></li>
+              <li><a href="#estruturacao_tabelas">Estruturação das Tabelas</a></li>
               <li><a href="#relacionamentos">Relacionamentos entre Dados</a></li>
             </ul>
           </li>
           <li>
-            <a href="#disponibilizacao-bi">Disponibilização para BI</a>
+            <a href="#disponibilizacao_bi">Disponibilização para BI</a>
             <ul>
-              <li><a href="#integracao-powerbi">Integração com Power BI</a></li>
-              <li><a href="#criacao-relatorios">Criação de Relatórios e Dashboards</a></li>
+              <li><a href="#integracao_powerbi">Integração com Power BI</a></li>
+              <li><a href="#criacao_relatorios">Criação de Relatórios e Dashboards</a></li>
             </ul>
           </li>
           <li><a href="#insights">Insights e Recomendações</a></li>
@@ -98,11 +98,43 @@
     <!-- CORPO PROJETO -->
     <div class="corpo_etl_project">
       <div class="etl_content">
-      <h2>
-        Transformando Dados em Estratégia: A Jornada de uma Loja de Pesca para o Universo
-        Data-Driven
-      </h2>
+      <h3 id="proposito">Propósito</h3>
+      <p>
+        O propósito deste projeto é implementar uma solução de Business Intelligence (BI) para uma loja de pesca com duas unidades físicas e um e-commerce, que busca se tornar data-driven e aumentar suas vendas. Utilizando dados de ERP (vendas), CRM (clientes) e Google Ads (campanhas), o objetivo é criar um Data Mart focado em vendas e marketing, por meio de um processo ETL automatizado. Este Data Mart fornecerá insights sobre vendas por canal, sazonalidade, tendências e impacto de campanhas, apresentados em dashboards no Power BI. Adotando uma abordagem bottom-up, o projeto inicia com um escopo reduzido, entregando valor rápido ao dono e permitindo escalabilidade futura para um Data Warehouse completo.
+      </p>
+      <h3 id="contexto_projeto">Contexto do projeto</h3>
+       <p>
+      Imagine uma loja de pesca tradicional, com duas lojas físicas e um e-commerce, navegando por um mercado cada vez mais complexo e competitivo. O proprietário, conhecedor de seu negócio, mas limitado por informações fragmentadas, sentia que estava perdendo oportunidades de crescimento.
+      </p>
+      <p>
+        Os sistemas existentes - um ERP robusto e um CRM funcional - guardavam tesouros de informações, mas permaneciam como ilhas isoladas de conhecimento. As campanhas de marketing no Google Ads geravam dados, mas sem uma análise aprofundada, eram apenas números soltos sem significado estratégico.
+      </p>
+      <p>Nasce um projeto estrategicamente simples: criar um data mart que pudesse transformar dados brutos em insights acionáveis. A abordagem seria bottom-up, começando pequeno, mas com visão de futuro.</p>
+      <p>O objetivo não era criar um sistema complexo de Business Intelligence, mas sim dar os primeiros passos concretos para uma cultura orientada por dados. Unir informações de vendas, CRM e marketing para responder perguntas cruciais:
+
+        <ul>
+          <li>Quais produtos mais vendem?</li>
+          <li>Como a sazonalidade impacta as vendas?</li>
+          <li>Qual o retorno real das campanhas de marketing?</li>
+          <li>Como otimizar os investimentos em publicidade?</li>
+        </ul>
+        </p>
+        <p>
+          Estratégia de Implementação
+          <ol>
+            <li>Integração de Dados: Conectar ERP, CRM e dados do Google Ads</li>
+            <li>Criação de Data Mart: Foco inicial em vendas e marketing</li>
+            <li>Análise das Vendas e Campanhas</li>
+            <li>Dashboard de Insights: Visualização simples e direta</li>
+          </ol>
+        </p>
+        <p>Tornando esse o primeiro passo de uma jornada para tornar a tomada de decisão mais precisa, mais inteligente e mais estratégica.</p>
+        <h3 id="fontes_dados">Fontes de Dados</h3>
     </div>
     <!-- End ETL Project -->
+    <button id="floating-nav-btn">
+      ☰ Sumário
+  </button>
+  <script src="./main.js"></script>
   </body>
 </html>
