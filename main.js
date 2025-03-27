@@ -50,17 +50,3 @@ document.addEventListener('DOMContentLoaded', function () {
     observer.observe(sumarioSection);
   }
 });
-
-document.addEventListener('DOMContentLoaded', function () {
-  const floatingNavBtn = document.getElementById('floating-nav-btn');
-  const sumarioSection = document.getElementById('sumario');
-
-  console.log('Botão:', floatingNavBtn);
-  console.log('Sumário:', sumarioSection);
-
-  if (floatingNavBtn && sumarioSection) {
-    // Resto do código
-  } else {
-    console.error('Elemento não encontrado');
-  }
-});
