@@ -38,6 +38,10 @@
   border-radius: 13px;
 }
 
+.img_fluxo {
+  width: 100%;
+}
+
 .corpo_etl_project {
   width: 1400px;
   height: auto;
