@@ -70,6 +70,14 @@
   width: 1000px;
 }
 
+.sumario > ul > li::marker {
+  color: #edc339;
+}
+
+.sumario ul li::marker {
+  color: #edc339;
+}
+
 .sumario ul {
   list-style-type: square;
   padding-left: 50px;

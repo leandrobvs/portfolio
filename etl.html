@@ -54,9 +54,15 @@
           <li>
             <a href="#fontes_dados">Fontes de Dados</a>
             <ul>
-              <li><a href="#erp">ERP</a></li>
-              <li><a href="#crm">CRM</a></li>
-              <li><a href="#outras_fontes">Outras Fontes (APIs, Planilhas, etc.)</a></li>
+              <li><a href="#erp">ERP & CRM & Google Ads</a></li>
+              
+            </ul>
+          </li>
+          <li><a href="#regras_negocio">Análise de Negócio e Modelagem de Dados</a>
+            <ul>
+              <li><a href="necessidades">Entendimento das Necessidades</a></li>
+              <li><a href="necessidades">Definição de Regras de Negócio</a></li>
+              <li><a href="necessidades">Modelagem do Data Mart</a></li>
             </ul>
           </li>
           <li>
@@ -107,7 +113,7 @@
       Imagine uma loja de pesca tradicional, com duas lojas físicas e um e-commerce, navegando por um mercado cada vez mais complexo e competitivo. O proprietário, conhecedor de seu negócio, mas limitado por informações fragmentadas, sentia que estava perdendo oportunidades de crescimento.
       </p>
       <p>
-        Os sistemas existentes - um ERP robusto e um CRM funcional - guardavam tesouros de informações, mas permaneciam como ilhas isoladas de conhecimento. As campanhas de marketing no Google Ads geravam dados, mas sem uma análise aprofundada, eram apenas números soltos sem significado estratégico.
+        Os sistemas existentes - um ERP robusto e um CRM funcional - guardavam importantes informações, mas permaneciam como ilhas isoladas de conhecimento. As campanhas de marketing no Google Ads geravam dados, mas sem uma análise aprofundada, eram apenas números soltos sem significado estratégico.
       </p>
       <p>Nasce um projeto estrategicamente simples: criar um data mart que pudesse transformar dados brutos em insights acionáveis. A abordagem seria bottom-up, começando pequeno, mas com visão de futuro.</p>
       <p>O objetivo não era criar um sistema complexo de Business Intelligence, mas sim dar os primeiros passos concretos para uma cultura orientada por dados. Unir informações de vendas, CRM e marketing para responder perguntas cruciais:
@@ -130,6 +136,8 @@
         </p>
         <p>Tornando esse o primeiro passo de uma jornada para tornar a tomada de decisão mais precisa, mais inteligente e mais estratégica.</p>
         <h3 id="fontes_dados">Fontes de Dados</h3>
+        <h3 id="erp">ERP & CRM & Google Ads</h3>
+        <p>A primeira carga do Data Mart será feita com dados históricos acumulados pela loja de pesca ao longo do tempo, extraídos de exports do ERP (vendas), CRM (clientes) e Google Ads (campanhas). Esses dados, salvos pela empresa desde 2023, abrangem 24 meses de ERP e CRM (2023-2024) e 12 meses de Google Ads (2024), fornecendo uma base robusta pra análises de sazonalidade, tendências e ROI. Após essa carga inicial, o ETL será ajustado pra processar dados novos diariamente, garantindo que o Data Mart fique atualizado com informações incrementais vindas dos sistemas centralizados.</p>
     </div>
     <!-- End ETL Project -->
     <button id="floating-nav-btn">
