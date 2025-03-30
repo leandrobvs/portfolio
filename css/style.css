@@ -37,3 +37,19 @@ a {
   text-decoration: none;
   color: unset;
 }
+
+.padd_bottom {
+  padding-bottom: 40px;
+}
+
+.img_menor {
+  width: auto !important;
+  max-width: none !important;
+  border-radius: 13px;
+}
+
+figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

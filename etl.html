@@ -43,7 +43,7 @@
     <!-- Start ETL Project -->
     <div class="sumario_etl_project">
       <div class="etl_title">
-        <img src="./images/ceva_fishing.png" alt="project logo etl">
+        <img src="./images/ceva_fishing.png" alt="project logo etl" />
         <h1>A Jornada de uma Loja de Pesca para o Universo Data-Driven</h1>
       </div>
       <div class="sumario">
@@ -55,14 +55,15 @@
             <a href="#fontes_dados">Fontes de Dados</a>
             <ul>
               <li><a href="#erp">ERP & CRM & Google Ads</a></li>
-              
+              <li><a href="#dados_disponiveis">Dados disponíveis</a></li>
             </ul>
           </li>
-          <li><a href="#regras_negocio">Análise de Negócio e Modelagem de Dados</a>
+          <li>
+            <a href="#analise_negocio">Análise de Negócio e Modelagem de Dados</a>
             <ul>
-              <li><a href="necessidades">Entendimento das Necessidades</a></li>
-              <li><a href="necessidades">Definição de Regras de Negócio</a></li>
-              <li><a href="necessidades">Modelagem do Data Mart</a></li>
+              <li><a href="#necessidades">Entendimento das Necessidades</a></li>
+              <li><a href="#regras">Definição de Regras de Negócio</a></li>
+              <li><a href="#modelagem">Modelagem do Data Mart</a></li>
             </ul>
           </li>
           <li>
@@ -70,14 +71,9 @@
             <ul>
               <li><a href="#extracao">Extração dos Dados</a></li>
               <li>
-                <a href="#transformacao">Transformação e Tratamento</a>
-                <ul>
-                  <li><a href="#limpeza">Limpeza de Dados</a></li>
-                  <li><a href="#tratamento_dados_faltantes">Tratamento de Dados Faltantes</a></li>
-                  <li><a href="#formatacao">Formatação e Padronização</a></li>
-                </ul>
+                <a href="#transformacao">Transformação e Limpeza</a>
               </li>
-              <li><a href="#carga">Carga no SQL Server</a></li>
+              <li><a href="#carga_sql">Carga no SQL Server</a></li>
             </ul>
           </li>
           <li>
@@ -104,47 +100,236 @@
     <!-- CORPO PROJETO -->
     <div class="corpo_etl_project">
       <div class="etl_content">
-      <h3 id="proposito">Propósito</h3>
-      <p>
-        O propósito deste projeto é implementar uma solução de Business Intelligence (BI) para uma loja de pesca com duas unidades físicas e um e-commerce, que busca se tornar data-driven e aumentar suas vendas. Utilizando dados de ERP (vendas), CRM (clientes) e Google Ads (campanhas), o objetivo é criar um Data Mart focado em vendas e marketing, por meio de um processo ETL automatizado. Este Data Mart fornecerá insights sobre vendas por canal, sazonalidade, tendências e impacto de campanhas, apresentados em dashboards no Power BI. Adotando uma abordagem bottom-up, o projeto inicia com um escopo reduzido, entregando valor rápido ao dono e permitindo escalabilidade futura para um Data Warehouse completo.
-      </p>
-      <h3 id="contexto_projeto">Contexto do projeto</h3>
-       <p>
-      Imagine uma loja de pesca tradicional, com duas lojas físicas e um e-commerce, navegando por um mercado cada vez mais complexo e competitivo. O proprietário, conhecedor de seu negócio, mas limitado por informações fragmentadas, sentia que estava perdendo oportunidades de crescimento.
-      </p>
-      <p>
-        Os sistemas existentes - um ERP robusto e um CRM funcional - guardavam importantes informações, mas permaneciam como ilhas isoladas de conhecimento. As campanhas de marketing no Google Ads geravam dados, mas sem uma análise aprofundada, eram apenas números soltos sem significado estratégico.
-      </p>
-      <p>Nasce um projeto estrategicamente simples: criar um data mart que pudesse transformar dados brutos em insights acionáveis. A abordagem seria bottom-up, começando pequeno, mas com visão de futuro.</p>
-      <p>O objetivo não era criar um sistema complexo de Business Intelligence, mas sim dar os primeiros passos concretos para uma cultura orientada por dados. Unir informações de vendas, CRM e marketing para responder perguntas cruciais:
+        <h3 id="proposito">Propósito</h3>
+        <p>
+          O propósito deste projeto é implementar uma solução de Business Intelligence (BI) para uma
+          loja de pesca com duas unidades físicas e um e-commerce, que busca se tornar data-driven e
+          aumentar suas vendas. Utilizando dados de ERP (vendas), CRM (clientes) e Google Ads
+          (campanhas), o objetivo é criar um Data Mart focado em vendas e marketing, por meio de um
+          processo ETL automatizado. Este Data Mart fornecerá insights sobre vendas por canal,
+          sazonalidade, tendências e impacto de campanhas, apresentados em dashboards no Power BI.
+          Adotando uma abordagem bottom-up, o projeto inicia com um escopo reduzido, entregando
+          valor rápido ao dono e permitindo escalabilidade futura para um Data Warehouse completo.
+        </p>
+        <h3 id="contexto_projeto">Contexto do projeto</h3>
+        <p>
+          Imagine uma loja de pesca tradicional, com duas lojas físicas e um e-commerce, navegando
+          por um mercado cada vez mais complexo e competitivo. O proprietário, conhecedor de seu
+          negócio, mas limitado por informações fragmentadas, sentia que estava perdendo
+          oportunidades de crescimento.
+        </p>
+        <p>
+          Os sistemas existentes - um ERP robusto e um CRM funcional - guardavam importantes
+          informações, mas permaneciam como ilhas isoladas de conhecimento. As campanhas de
+          marketing no Google Ads geravam dados, mas sem uma análise aprofundada, eram apenas
+          números soltos sem significado estratégico.
+        </p>
+        <p>
+          Nasce um projeto estrategicamente simples: criar um data mart que pudesse transformar
+          dados brutos em insights acionáveis. A abordagem seria bottom-up, começando pequeno, mas
+          com visão de futuro.
+        </p>
+        <p>
+          O objetivo não era criar um sistema complexo de Business Intelligence, mas sim dar os
+          primeiros passos concretos para uma cultura orientada por dados. Unir informações de
+          vendas, CRM e marketing para responder perguntas cruciais:
+        </p>
 
-        <ul>
+        <ul class="padd_bottom">
           <li>Quais produtos mais vendem?</li>
           <li>Como a sazonalidade impacta as vendas?</li>
           <li>Qual o retorno real das campanhas de marketing?</li>
           <li>Como otimizar os investimentos em publicidade?</li>
         </ul>
-        </p>
+        <p>Estratégia de Implementação</p>
+        <ol class="padd_bottom">
+          <li>Integração de Dados: Conectar ERP, CRM e dados do Google Ads</li>
+          <li>Criação de Data Mart: Foco inicial em vendas e marketing</li>
+          <li>Análise das Vendas e Campanhas</li>
+          <li>Dashboard de Insights: Visualização simples e direta</li>
+        </ol>
+
         <p>
-          Estratégia de Implementação
-          <ol>
-            <li>Integração de Dados: Conectar ERP, CRM e dados do Google Ads</li>
-            <li>Criação de Data Mart: Foco inicial em vendas e marketing</li>
-            <li>Análise das Vendas e Campanhas</li>
-            <li>Dashboard de Insights: Visualização simples e direta</li>
-          </ol>
+          Tornando esse o primeiro passo de uma jornada para tornar a tomada de decisão mais
+          precisa, mais inteligente e mais estratégica.
         </p>
-        <p>Tornando esse o primeiro passo de uma jornada para tornar a tomada de decisão mais precisa, mais inteligente e mais estratégica.</p>
         <h3 id="fontes_dados">Fontes de Dados</h3>
         <h3 id="erp">ERP & CRM & Google Ads</h3>
-        <p>A primeira carga do Data Mart será feita com dados históricos acumulados pela loja de pesca ao longo do tempo, extraídos de exports do ERP (vendas), CRM (clientes) e Google Ads (campanhas). Esses dados, salvos pela empresa desde 2023, abrangem 24 meses de ERP e CRM (2023-2024) e 12 meses de Google Ads (2024), fornecendo uma base robusta pra análises de sazonalidade, tendências e ROI. Após essa carga inicial, o ETL será ajustado pra processar dados novos diariamente, garantindo que o Data Mart fique atualizado com informações incrementais vindas dos sistemas centralizados.</p>
+        <p>
+          A primeira carga do Data Mart será feita com dados históricos acumulados pela loja de
+          pesca ao longo do tempo, extraídos de exports do ERP (vendas), CRM (clientes) e Google Ads
+          (campanhas). Esses dados, salvos pela empresa desde 2023, abrangem 24 meses de ERP e CRM
+          (2023-2024) e 12 meses de Google Ads (2024), fornecendo uma base robusta pra análises de
+          sazonalidade, tendências e ROI. Após essa carga inicial, o ETL será ajustado pra processar
+          dados novos diariamente, garantindo que o Data Mart fique atualizado com informações
+          incrementais vindas dos sistemas centralizados.
+        </p>
         <p>Sendo assim o fluxo inicial do projeto de BI seguiria o seguinte esquema:</p>
-        <p><img src="./images/fluxo.jpg" alt="fluxo dos dados" class="img_fluxo"></p>
+        <figure>
+          <img src="./images/fluxo.jpg" alt="fluxo dos dados" class="img_etl" />
+          <figcaption class="fonte_imagem">Imagem criado pelo autor no figma</figcaption>
+        </figure>
+        <h3 id="dados_disponiveis">Dados disponíveis</h3>
+        <p>ERP Vendas:</p>
+        <ul class="padd_bottom">
+          <li>
+            Descrição: O sistema ERP da loja forneceu 27 arquivos CSV correspondentes aos últimos 2
+            anos e 3 meses de histórico (janeiro/2023 a março/2025). Cada arquivo representa um mês
+            de vendas e inclui transações das duas lojas físicas e do e-commerce.
+          </li>
+          <li>
+            Estrutura: Colunas: venda_id, data (data da venda), SKU (código do produto), loja_id
+            (canal: 1=Loja A, 2=Loja B, 3=E-commerce), valor, cliente_id, campanha_id (campanha
+            associada, se houver).
+          </li>
+          <li>
+            Detalhes: Os dados cobrem todas as vendas registradas, mas alguns cliente_id podem não
+            estar associados a cadastros completos.
+          </li>
+        </ul>
+        <p>CRM Clientes:</p>
+        <ul class="padd_bottom">
+          <li>
+            Descrição: O CRM da loja nos dá acesso ao estado atual dos cadastros de clientes,
+            disponibilizado num único arquivo CSV. Representa os clientes registrados até
+            março/2025.
+          </li>
+          <li>
+            Estrutura: Colunas: cliente_id, nome, ultima_compra , canal_origem (canal de origem:
+            1=Loja A, 2=Loja B, 3=E-commerce).
+          </li>
+          <li>
+            Detalhes: Contém 1547 clientes cadastrados, mas nem todos os cliente_id das vendas estão
+            presentes aqui, sugerindo vendas avulsas.
+          </li>
+        </ul>
+        <p>Google Ads:</p>
+        <ul class="padd_bottom">
+          <li>
+            Descrição: Os dados de campanhas do Google Ads serão obtidos via API, cobrindo o período
+            de janeiro/2024 a março/2025 (as propagandas começaram em 2024). Representam os
+            investimentos em marketing digital pro e-commerce.
+          </li>
+          <li>
+            Estrutura: Colunas: campanha_id (ID da campanha, fixo como "Google_Ads"), nome_campanha
+            , data_inicio, data_fim, custo (investimento em reais), impressoes (número de
+            impressões), cliques (número de cliques), ctr (taxa de cliques em %), conversoes (número
+            de conversões), cpc (custo por clique).
+          </li>
+          <li>
+            Detalhes: Inclui 15 campanhas, iniciadas em 2024, e só se aplicam ao loja_id = 3
+            (e-commerce).
+          </li>
+        </ul>
+
+        <h3 id="analise_negocio">Análise de Negócio e Modelagem de Dados</h3>
+        <h3 id="necessidades">Entendimento das Necessidades</h3>
+        <p>
+          Este projeto de Business Intelligence é o primeiro passo pra transformar a gestão da loja
+          de pesca, trazendo mais visibilidade e controle pro seu negócio. Com o BI, vamos entender
+          melhor o desempenho das vendas nas lojas físicas e no e-commerce, identificar quais
+          produtos têm mais saída, avaliar o impacto das campanhas de marketing como o Google Ads e
+          conhecer os hábitos dos clientes pra fidelizá-los. Nosso objetivo é aumentar seu lucro e
+          otimizar os investimentos, tudo baseado nos dados que já existem na empresa. Como é uma
+          iniciativa viva, ao longo do processo vamos mapear possíveis lacunas nos dados ou nos
+          processos – como cadastros incompletos ou padrões sazonais – e trabalhar juntos pra
+          melhorá-las, garantindo que o sistema evolua junto com a loja e entregue cada vez mais
+          valor!
+        </p>
+        <h3 id="regras">Definição de Regras de Negócio</h3>
+        <p>
+          O processo de definição de regras de negócio começa com o entendimento do funcionamento da
+          empresa, reunindo as partes interessadas, como os times de vendas e marketing, pra captar
+          como o negócio opera e quais respostas eles esperam dos dados, garantindo que o BI reflita
+          suas prioridades. Em seguida, identificamos as fontes de dados disponíveis que vão
+          alimentar o sistema, como os históricos de transações do ERP em CSVs, que trazem vendas de
+          diferentes canais, o CRM com os cadastros atuais dos clientes em um arquivo único, e os
+          dados de campanhas do Google Ads, extraídos via API a partir de 2024 com métricas de
+          desempenho – cada uma oferecendo uma peça essencial pro quebra-cabeça.
+        </p>
+        <p>
+          Com essas informações em mãos, trabalhamos junto com as equipes pra criar regras que
+          traduzam os processos do dia a dia em diretrizes pros dados, definindo, por exemplo, o que
+          torna uma venda válida ou como classificar clientes e campanhas, sempre alinhando com o
+          que o negócio precisa. Esse trabalho colaborativo segue com a validação dessas regras
+          pelas partes envolvidas, ajustando o que for necessário pra refletir a realidade da
+          empresa, e tudo é registrado de forma simples pra guiar o desenvolvimento.
+        </p>
+        <p>
+          Por fim, essas regras ganham vida no ETL, onde os dados brutos são transformados em
+          tabelas organizadas que respondem às perguntas levantadas, num esforço conjunto que
+          entrega valor inicial e evolui com o tempo. Esse mesmo fluxo se aplica a qualquer Data
+          Mart – em um projeto de RH, por exemplo, seriam os profissionais de recursos humanos
+          definindo o que importa, como turnover ou status de funcionários, provando que o segredo é
+          envolver quem conhece o problema pra construir algo que realmente resolva as dores do
+          negócio.
+        </p>
+        <h3 id="modelagem">Modelagem do Data Mart</h3>
+        <p>
+          Na modelagem do Data Mart, definimos as tabelas e relações que acreditamos atender às
+          principais perguntas do negócio, entregando valor imediato pros times de vendas e
+          marketing da loja de pesca. Esse projeto não só fornece insights com os dados atuais, como
+          faturamento por canal ou desempenho de campanhas, mas também ajuda a identificar lacunas
+          existentes nas informações, sugerindo mudanças e adições pra enriquecer o BI ao longo do
+          tempo. Com isso, o modelo do banco de dados segue o esquema apresentado abaixo,
+          estruturado pra suportar análises rápidas e evoluir com as necessidades da empresa.
+        </p>
+        <figure>
+          <img src="./images/etl/db_diagram.png" alt="modelagem dados" class="img_menor" />
+          <figcaption class="fonte_imagem">Diagrama criado pelo autor no dbdiagram.io</figcaption>
+        </figure>
+        <h3 id="processo_etl">Processo ETL</h3>
+        <h3 id="extracao">Extração dos Dados</h3>
+        <p>
+          Na etapa de extração dos dados, coletamos as informações brutas das fontes da loja de
+          pesca pra realizar a primeira carga histórica no Data Mart. Isso envolve os 27 arquivos
+          CSV do ERP com o histórico de vendas de janeiro de 2023 a março de 2025, o arquivo CSV do
+          CRM com os cadastros atuais dos clientes, e os dados de campanhas do Google Ads, extraídos
+          via API e cobrindo o período a partir de 2024. Com Python, lemos os CSVs locais e fazemos
+          uma chamada HTTP ao MockAPI pra trazer tudo pra um formato que possamos transformar e
+          carregar no SQL Server, garantindo que os dados históricos estejam prontos pra análise
+          inicial.
+        </p>
+        <figure>
+          <img src="./images/etl/code001.png" alt="demo codigo 001" class="img_menor" />
+          <figcaption class="fonte_imagem">Imagem criado pelo autor no vscode</figcaption>
+        </figure>
+        <h3 id="transformacao">Transformação e Limpeza</h3>
+        <p>
+          Na etapa de transformação e limpeza, preparamos os dados brutos da loja de pesca pro Data
+          Mart, aplicando regras de negócio e tratando possíveis inconsistências num único processo.
+          Isso inclui garantir que campanhas do Google Ads só apareçam pro e-commerce, remover
+          duplicatas ou vendas com valores inválidos, e definir o que fazer com dados faltantes –
+          como marcar clientes sem identificação como 'Avulso' ou excluir registros incompletos.
+          Também padronizamos formatos, como converter datas pra um padrão consistente, assegurando
+          que os DataFrames estejam alinhados ao modelo Star Schema e prontos pra análises de vendas
+          e marketing. Mesmo com dados históricos gerados de forma controlada, simulamos cenários
+          comuns pra demonstrar boas práticas de ETL.
+        </p>
+        <figure>
+          <img src="./images/etl/code002.png" alt="demo codigo 002" class="img_menor" />
+          <figcaption class="fonte_imagem">Imagem criado pelo autor no vscode</figcaption>
+        </figure>
+        <h3 id="carga_sql">Carga no SQL Server</h3>
+        <p>
+          Na etapa de carga, configuramos o Data Mart no SQL Server criando o banco DataMart_Pesca
+          diretamente no SSMS. Usando a opção 'New Database', adicionamos o banco e definimos as
+          tabelas Fato_Vendas, Dim_Produtos, Dim_Clientes e Dim_Campanhas com scripts SQL, incluindo
+          chaves primárias e estrangeiras. Optamos por não incluir uma Dim_Tempo no SQL Server, já
+          que no Power BI é boa prática criar essa dimensão dinamicamente com DAX ou Power Query a
+          partir da coluna data do Fato_Vendas. Por fim, usamos Python com sqlalchemy pra conectar
+          ao banco e carregar os DataFrames correspondentes, finalizando o ETL e preparando os dados
+          pras análises do time.
+        </p>
+        <figure>
+          <img src="./images/etl/sql_server.gif" alt="criacao sql server" class="img_etl" />
+          <figcaption class="fonte_imagem">GIF criado pelo autor no SSMS</figcaption>
+        </figure>
+        <p>Carregando os dados no DB</p>
+      </div>
     </div>
     <!-- End ETL Project -->
-    <button id="floating-nav-btn">
-      ☰ Sumário
-  </button>
-  <script src="./main.js"></script>
+    <button id="floating-nav-btn">☰ Sumário</button>
+    <script src="./main.js"></script>
   </body>
 </html>
