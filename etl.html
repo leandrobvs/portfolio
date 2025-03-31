@@ -67,7 +67,7 @@
             </ul>
           </li>
           <li>
-            <a href="#processo_etl">Processo ETL</a>
+            <a href="#processo_etl">Processo ETL Histórico</a>
             <ul>
               <li><a href="#extracao">Extração dos Dados</a></li>
               <li>
@@ -77,10 +77,10 @@
             </ul>
           </li>
           <li>
-            <a href="#armazenamento">Armazenamento e Modelagem</a>
+            <a href="#etl_diario">Processo ETL diário</a>
             <ul>
-              <li><a href="#estruturacao_tabelas">Estruturação das Tabelas</a></li>
-              <li><a href="#relacionamentos">Relacionamentos entre Dados</a></li>
+              <li><a href="#airflow">Airflow</a></li>
+              <li><a href="#x">x</a></li>
             </ul>
           </li>
           <li>
@@ -278,7 +278,7 @@
           <img src="./images/etl/db_diagram.png" alt="modelagem dados" class="img_menor" />
           <figcaption class="fonte_imagem">Diagrama criado pelo autor no dbdiagram.io</figcaption>
         </figure>
-        <h3 id="processo_etl">Processo ETL</h3>
+        <h3 id="processo_etl">Processo ETL Histórico</h3>
         <h3 id="extracao">Extração dos Dados</h3>
         <p>
           Na etapa de extração dos dados, coletamos as informações brutas das fontes da loja de
@@ -312,20 +312,39 @@
         </figure>
         <h3 id="carga_sql">Carga no SQL Server</h3>
         <p>
-          Na etapa de carga, configuramos o Data Mart no SQL Server criando o banco DataMart_Pesca
+          Na etapa de carga, configuramos o Data Mart no SQL Server criando o banco Anzol_Fishing
           diretamente no SSMS. Usando a opção 'New Database', adicionamos o banco e definimos as
           tabelas Fato_Vendas, Dim_Produtos, Dim_Clientes e Dim_Campanhas com scripts SQL, incluindo
           chaves primárias e estrangeiras. Optamos por não incluir uma Dim_Tempo no SQL Server, já
           que no Power BI é boa prática criar essa dimensão dinamicamente com DAX ou Power Query a
           partir da coluna data do Fato_Vendas. Por fim, usamos Python com sqlalchemy pra conectar
-          ao banco e carregar os DataFrames correspondentes, finalizando o ETL e preparando os dados
-          pras análises do time.
+          ao banco e carregar os DataFrames correspondentes, finalizando o ETL histórico e
+          preparando os dados pras análises do time.
         </p>
         <figure>
           <img src="./images/etl/sql_server.gif" alt="criacao sql server" class="img_etl" />
           <figcaption class="fonte_imagem">GIF criado pelo autor no SSMS</figcaption>
         </figure>
         <p>Carregando os dados no DB</p>
+        <figure>
+          <img src="./images/etl/sql_server2.gif" alt="criacao sql server" class="img_etl" />
+          <figcaption class="fonte_imagem">GIF criado pelo autor no vscode & SSMS</figcaption>
+        </figure>
+        <p>
+          Com o Data Mart estruturado, já podemos acessar os dados de forma eficaz para extrair
+          insights e informações que auxiliam na tomada de decisão. Uma query simples já permite
+          visualizar os dados sob diferentes perspectivas, como esta que mostra a receita gerada por
+          cada campanha para a loja. A partir daí, é possível expandir análises e integrar com
+          ferramentas como o Power BI para relatórios dinâmicos. Porém na próxima etapa vamos
+          garantir que os dados gerados diariamente sejam adicionados a esse Data Mart e fornecendo
+          informação contínua a equipe de análises.
+        </p>
+        <figure>
+          <img src="./images/etl/code003.png" alt="demo code" class="img_menor" />
+          <figcaption class="fonte_imagem">Imagem criado pelo autor no SSMS</figcaption>
+        </figure>
+        <h3 id="etl_diario">Processo ETL diário</h3>
+        <p>Projeto em andamento...</p>
       </div>
     </div>
     <!-- End ETL Project -->
