@@ -221,6 +221,15 @@
             (e-commerce).
           </li>
         </ul>
+        <p>
+          Link da API simulando dados a serem extraídos do Google_ads:
+          <a
+            href="https://67e95b8dbdcaa2b7f5b9309a.mockapi.io/google_ads/campanhas"
+            style="color: #007bff; text-decoration: underline"
+            target="_blank"
+            >Link</a
+          >
+        </p>
 
         <h3 id="analise_negocio">Análise de Negócio e Modelagem de Dados</h3>
         <h3 id="necessidades">Entendimento das Necessidades</h3>
@@ -482,8 +491,8 @@
           a moldar uma compreensão mais clara do negócio e a proporcionar um controle mais efetivo
           sobre os processos. Indicadores como o número total de vendas, a variedade de produtos
           trabalhados pela loja, o ticket médio e os gastos com marketing fornecem uma visão macro
-          do que está acontecendo, permitindo uma análise mais profunda, especialmente ao reduzir a
-          granularidade e entender as tendências mensais.
+          do que está acontecendo, porém com a dinamica e flexibilidade de ferramentas de BI ao
+          reduzir a granularidade podemos fazer uma análise mais profunda em análises futuras.
         </p>
         <p>
           É possível perceber uma queda significativa nas vendas durante os meses de Novembro,
@@ -546,10 +555,59 @@
           áreas que precisam de aprimoramento. Um sistema mais robusto poderia registrar esses
           dados, permitindo não apenas o monitoramento do desempenho individual dos vendedores, mas
           também a identificação daqueles que necessitam de treinamentos adicionais, caso não
-          estejam registrando as vendas corretamente.
+          estejam registrando as vendas corretamente citando um exemplo.
         </p>
         <h3 id="desafios">Desafios e Aprendizados</h3>
+        <p>
+          Implementar um ETL incremental com Apache Airflow e SQL Server foi uma jornada
+          desafiadora, desde o início enfrentei obstáculos que me obrigaram a mergulhar fundo em
+          ferramentas novas e ambientes complexos, mas cada dificuldade trouxe um aprendizado
+          valioso que solidificou meu entendimento sobre orquestração de dados e integração de
+          sistemas.
+        </p>
+        <p>
+          Configurar o ambiente do Airflow no Docker foi um pouco trabalhoso, como o Apache Airflow
+          não roda nativamente no windows e não queria usar Máquina Virtual para contornar esse
+          problema, resolvi abordar técnicas mais modernas que temos hoje em dia, no caso o Docker +
+          WSL2
+        </p>
+        <p>
+          Outro grande obstáculo foi fazer o Airflow se conectar ao SQL Server. O erro "Can't open
+          lib 'ODBC Driver 17 for SQL Server' : file not found" apareceu várias vezes, me forçando a
+          reconstruir a imagem repetidamente. Descobri que o pyodbc sozinho não bastava – precisava
+          do driver ODBC instalado no container e de uma configuração precisa com
+          host.docker.internal pra alcançar o SQL Server no Windows.
+        </p>
         <h3 id="conclusao">Conclusão</h3>
+        <p>
+          Por fim, agradeço a quem teve a paciência de acompanhar todo o projeto. Meu objetivo foi
+          ajudar quem tem uma ideia mais abstrata de ETL e pipelines a entender esses processos na
+          prática e como solucioná-los. Existem várias formas de resolver o mesmo problema, e
+          acredito que cada projeto de BI exige uma abordagem específica, dependendo do nível de
+          maturidade em que a empresa se encontra.
+        </p>
+        <p>Algumas notas finais:</p>
+        <ul class="padd_bottom">
+          <li>
+            Os dados usados neste projeto misturam dados reais, obtidos por web scraping em sites de
+            lojas de pesca, com dados sintéticos.
+          </li>
+          <li>
+            Disponibilizarei os dados em um repositório no meu GitHub neste endereço:
+            <a
+              href="https://github.com/leandrobvs/SQL-PowerBI-Excel/tree/main/etl_process"
+              style="color: #007bff; text-decoration: underline"
+              target="_blank"
+              >Link</a
+            >
+          </li>
+          <li>
+            Como abordei todas as etapas de um projeto de BI, procurei explicar cada processo de
+            forma clara, mas sem me aprofundar demais – há muitos detalhes adicionais em cada um
+            deles que poderiam ser explorados.
+          </li>
+        </ul>
+        <p>Obrigado.</p>
       </div>
     </div>
     <!-- End ETL Project -->
