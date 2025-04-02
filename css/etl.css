@@ -14,6 +14,10 @@
   font-family: 'Montserrat', serif;
 }
 
+.nav_etl {
+  justify-content: right;
+}
+
 #floating-nav-btn.hidden {
   opacity: 0;
   transform: translateX(-100%);
