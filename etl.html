@@ -360,10 +360,13 @@
           processamento.
         </p>
         <p>
-          Para gerenciar esse fluxo de forma automatizada, utilizamos o Apache Airflow, uma
-          ferramenta de orquestração que coordena as tarefas do ETL. Uma DAG (Directed Acyclic
-          Graph) é configurada para observar a pasta de novos arquivos e, às 02:00, iniciar o
-          processamento. A DAG replica o mesmo pipeline da carga histórica:
+          Para a orquestração automatizada deste fluxo, utilizamos o Apache Airflow. Acreditamos que
+          a escolha da ferramenta ideal deve ser colaborativa, considerando as preferências e
+          necessidades da empresa ou equipe. Embora Apache Hop e Pentaho ofereçam vantagens como
+          interfaces gráficas e menor necessidade de código, o Airflow foi a escolha para este
+          exemplo. Uma DAG (Directed Acyclic Graph) é configurada para observar a pasta de novos
+          arquivos e, às 02:00, iniciar o processamento. A DAG replica o mesmo pipeline da carga
+          histórica:
         </p>
         <ol class="padd_bottom">
           <li>Detecção: Identifica o novo CSV gerado pelo sistema</li>
