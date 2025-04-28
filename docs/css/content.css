@@ -1,0 +1,53 @@
+.main-content {
+  width: 1400px;
+  height: auto;
+  background-color: #fffbf5;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 100px;
+}
+
+.profile-name {
+  font-family: 'Noto Serif Display', serif;
+  font-weight: 400;
+  font-size: 9rem;
+  color: #393739;
+  padding-top: 20px;
+}
+
+.profile-picture {
+  width: 350px;
+  height: 350px;
+  margin-top: 60px;
+  display: block;
+}
+
+.profile-picture img {
+  width: 350px;
+  height: 350px;
+}
+
+.font-1a {
+  font-family: 'Montserrat', serif;
+}
+
+.profile-detail {
+  justify-content: left;
+}
+
+.profile-text {
+  width: 300px;
+}
+
+.skills {
+  margin-top: 80px;
+  font-family: 'Montserrat', serif;
+  font-size: 2.8rem;
+  color: #393739;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}

@@ -1,0 +1,55 @@
+@import url(../css/nav.css);
+@import url(../css/content.css);
+@import url(../css/aboutme.css);
+@import url(../css/portfolio.css);
+@import url(../css/curriculum.css);
+@import url(../css/footer.css);
+@import url(../css/etl.css);
+
+* {
+  padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+[lang='en'] {
+  display: none;
+}
+[lang='pt-br'] {
+  display: block;
+}
+
+body {
+  font-size: 1.6rem;
+  background-color: #2f2f2f;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
+}
+
+.padd_bottom {
+  padding-bottom: 40px;
+}
+
+.img_menor {
+  width: auto !important;
+  max-width: none !important;
+  border-radius: 13px;
+}
+
+figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

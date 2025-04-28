@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JSQEXKB8GT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'G-JSQEXKB8GT');
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ETL | Portfolio</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,700;1,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Start Navigation -->
+    <nav class="navbar nav_etl">
+      <ul id="menu" class="menu">
+        <li class="hover-underline-animation" lang="pt-br">
+          <a href="index.html#about-me">Sobre Mim</a>
+        </li>
+        <li class="hover-underline-animation" lang="en">
+          <a href="index.html#about-me">About Me</a>
+        </li>
+        <li class="hover-underline-animation" lang="pt-br">
+          <a href="index.html#portfolio">Portfólio</a>
+        </li>
+        <li class="hover-underline-animation" lang="en">
+          <a href="index.html#portfolio">Portfolio</a>
+        </li>
+        <li class="hover-underline-animation" lang="pt-br">
+          <a href="index.html#curriculum">Curriculum</a>
+        </li>
+        <li class="hover-underline-animation" lang="en">
+          <a href="index.html#curriculum">Curriculum</a>
+        </li>
+      </ul>
+    </nav>
+    <!-- End Nav -->
+    <!-- Start ETL Project -->
+    <div class="sumario_etl_project">
+      <div class="etl_title">
+        <img src="./images/ceva_fishing.png" alt="project logo etl" />
+        <h1>A Jornada de uma Loja de Pesca para o Universo Data-Driven</h1>
+      </div>
+      <div class="sumario">
+        <h2 id="sumario">Sumário</h2>
+        <ul>
+          <li><a href="#proposito">Propósito</a></li>
+          <li><a href="#contexto_projeto">Contexto do Projeto</a></li>
+          <li>
+            <a href="#fontes_dados">Fontes de Dados</a>
+            <ul>
+              <li><a href="#erp">ERP & CRM & Google Ads</a></li>
+              <li><a href="#dados_disponiveis">Dados disponíveis</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#analise_negocio">Análise de Negócio e Modelagem de Dados</a>
+            <ul>
+              <li><a href="#necessidades">Entendimento das Necessidades</a></li>
+              <li><a href="#regras">Definição de Regras de Negócio</a></li>
+              <li><a href="#modelagem">Modelagem do Data Mart</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#processo_etl">Processo ETL Histórico</a>
+            <ul>
+              <li><a href="#extracao">Extração dos Dados</a></li>
+              <li>
+                <a href="#transformacao">Transformação e Limpeza</a>
+              </li>
+              <li><a href="#carga_sql">Carga no SQL Server</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#etl_diario">Processo ETL diário</a>
+            <ul>
+              <li><a href="#loc">Localização</a></li>
+              <li><a href="#airflow">Apache Airflow</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#bi">Disponibilização para BI</a>
+            <ul>
+              <li><a href="#powerbi">Integração com Power BI</a></li>
+              <li><a href="#dashboards">Criação de Relatórios e Dashboards</a></li>
+            </ul>
+          </li>
+          <li><a href="#insights">Insights e Recomendações</a></li>
+          <li><a href="#desafios">Desafios e Aprendizados</a></li>
+          <li><a href="#conclusao">Conclusão</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- FINAL SUMARIO -->
+    <!-- CORPO PROJETO -->
+    <div class="corpo_etl_project">
+      <div class="etl_content">
+        <h3 id="proposito">Propósito</h3>
+        <p>
+          O propósito deste projeto é implementar uma solução de Business Intelligence (BI) para uma
+          loja de pesca com duas unidades físicas e um e-commerce, que busca se tornar data-driven e
+          aumentar suas vendas. Utilizando dados de ERP (vendas), CRM (clientes) e Google Ads
+          (campanhas), o objetivo é criar um Data Mart focado em vendas e marketing, por meio de um
+          processo ETL automatizado. Este Data Mart fornecerá insights sobre vendas por canal,
+          sazonalidade, tendências e impacto de campanhas, que poderam ser apresentados em
+          dashboards no Power BI. Adotando uma abordagem bottom-up, o projeto inicia com um escopo
+          reduzido, entregando valor rápido ao dono e permitindo escalabilidade futura para um Data
+          Warehouse completo.
+        </p>
+        <h3 id="contexto_projeto">Contexto do projeto</h3>
+        <p>
+          Imagine uma loja de pesca tradicional, com duas lojas físicas e um e-commerce, navegando
+          por um mercado cada vez mais complexo e competitivo. O proprietário, conhecedor de seu
+          negócio, mas limitado por informações fragmentadas, sentia que estava perdendo
+          oportunidades de crescimento.
+        </p>
+        <p>
+          Os sistemas existentes - um ERP e um CRM funcional - guardavam importantes informações,
+          mas permaneciam como ilhas isoladas de conhecimento. As campanhas de marketing no Google
+          Ads geravam dados, mas sem uma análise aprofundada, eram apenas números soltos sem
+          significado estratégico.
+        </p>
+        <p>
+          Nasce um projeto estrategicamente simples: criar um data mart que pudesse transformar
+          dados brutos em insights acionáveis. A abordagem seria bottom-up, começando pequeno, mas
+          com visão de futuro.
+        </p>
+        <p>
+          O objetivo não era criar um sistema complexo de Business Intelligence, mas sim dar os
+          primeiros passos concretos para uma cultura orientada por dados. Unir informações de
+          vendas, CRM e marketing para responder perguntas cruciais:
+        </p>
+
+        <ul class="padd_bottom">
+          <li>Quais produtos mais vendem?</li>
+          <li>Como a sazonalidade impacta as vendas?</li>
+          <li>Qual o retorno real das campanhas de marketing?</li>
+          <li>Como otimizar os investimentos em publicidade?</li>
+        </ul>
+        <p>Estratégia de Implementação</p>
+        <ol class="padd_bottom">
+          <li>Integração de Dados: Conectar ERP, CRM e dados do Google Ads</li>
+          <li>Criação de Data Mart: Foco inicial em vendas e marketing</li>
+          <li>Análise das Vendas e Campanhas</li>
+          <li>Dashboard de Insights: Visualização simples e direta</li>
+        </ol>
+
+        <p>
+          Tornando esse o primeiro passo de uma jornada para tornar a tomada de decisão mais
+          precisa, mais inteligente e mais estratégica.
+        </p>
+        <h3 id="fontes_dados">Fontes de Dados</h3>
+        <h3 id="erp">ERP & CRM & Google Ads</h3>
+        <p>
+          A primeira carga do Data Mart será feita com dados históricos acumulados pela loja de
+          pesca ao longo do tempo, extraídos de exports do ERP (vendas), CRM (clientes) e Google Ads
+          (campanhas). Esses dados, salvos pela empresa desde 2023, abrangem 24 meses de ERP e CRM
+          (2023-2024) e 12 meses de Google Ads (2024), fornecendo uma base robusta pra análises de
+          sazonalidade, tendências e ROI. Após essa carga inicial, o ETL será ajustado pra processar
+          dados novos diariamente, garantindo que o Data Mart fique atualizado com informações
+          incrementais vindas dos sistemas centralizados.
+        </p>
+        <p>Sendo assim o fluxo inicial do projeto de BI seguiria o seguinte esquema:</p>
+        <figure>
+          <img src="./images/fluxo.jpg" alt="fluxo dos dados" class="img_etl" />
+          <figcaption class="fonte_imagem">Imagem criado pelo autor no figma</figcaption>
+        </figure>
+        <h3 id="dados_disponiveis">Dados disponíveis</h3>
+        <p>ERP Vendas:</p>
+        <ul class="padd_bottom">
+          <li>
+            Descrição: O sistema ERP da loja forneceu 27 arquivos CSV correspondentes aos últimos 2
+            anos e 3 meses de histórico (janeiro/2023 a março/2025). Cada arquivo representa um mês
+            de vendas e inclui transações das duas lojas físicas e do e-commerce.
+          </li>
+          <li>
+            Estrutura: Colunas: venda_id, data (data da venda), SKU (código do produto), loja_id
+            (canal: 1=Loja A, 2=Loja B, 3=E-commerce), valor, cliente_id, campanha_id (campanha
+            associada, se houver).
+          </li>
+          <li>
+            Detalhes: Os dados cobrem todas as vendas registradas, mas alguns cliente_id podem não
+            estar associados a cadastros completos.
+          </li>
+        </ul>
+        <p>CRM Clientes:</p>
+        <ul class="padd_bottom">
+          <li>
+            Descrição: O CRM da loja nos dá acesso ao estado atual dos cadastros de clientes,
+            disponibilizado num único arquivo CSV. Representa os clientes registrados até
+            março/2025.
+          </li>
+          <li>
+            Estrutura: Colunas: cliente_id, nome, ultima_compra , canal_origem (canal de origem:
+            1=Loja A, 2=Loja B, 3=E-commerce).
+          </li>
+          <li>
+            Detalhes: Contém 1547 clientes cadastrados, mas nem todos os cliente_id das vendas estão
+            presentes aqui, sugerindo vendas avulsas.
+          </li>
+        </ul>
+        <p>Google Ads:</p>
+        <ul class="padd_bottom">
+          <li>
+            Descrição: Os dados de campanhas do Google Ads serão obtidos via API, cobrindo o período
+            de janeiro/2024 a março/2025 (as propagandas começaram em 2024). Representam os
+            investimentos em marketing digital pro e-commerce.
+          </li>
+          <li>
+            Estrutura: Colunas: campanha_id, nome_campanha , data_inicio, data_fim, custo
+            (investimento em reais), impressoes (número de impressões), cliques (número de cliques),
+            ctr (taxa de cliques em %), conversoes (número de conversões), cpc (custo por clique),
+            plataforma (Google Ads, Meta Ads e etc...).
+          </li>
+          <li>
+            Detalhes: Inclui 15 campanhas, iniciadas em 2024, e só se aplicam ao loja_id = 3
+            (e-commerce).
+          </li>
+        </ul>
+        <p>
+          Link da API simulando dados a serem extraídos do Google_ads:
+          <a
+            href="https://67e95b8dbdcaa2b7f5b9309a.mockapi.io/google_ads/campanhas"
+            style="color: #007bff; text-decoration: underline"
+            target="_blank"
+            >Link</a
+          >
+        </p>
+
+        <h3 id="analise_negocio">Análise de Negócio e Modelagem de Dados</h3>
+        <h3 id="necessidades">Entendimento das Necessidades</h3>
+        <p>
+          Este projeto de Business Intelligence é o primeiro passo pra transformar a gestão da loja
+          de pesca, trazendo mais visibilidade e controle pro seu negócio. Com o BI, vamos entender
+          melhor o desempenho das vendas nas lojas físicas e no e-commerce, identificar quais
+          produtos têm mais saída, avaliar o impacto das campanhas de marketing como o Google Ads e
+          conhecer os hábitos dos clientes pra fidelizá-los. Nosso objetivo é aumentar seu lucro e
+          otimizar os investimentos, tudo baseado nos dados que já existem na empresa. Como é uma
+          iniciativa viva, ao longo do processo vamos mapear possíveis lacunas nos dados ou nos
+          processos – como cadastros incompletos ou padrões sazonais – e trabalhar juntos pra
+          melhorá-las, garantindo que o sistema evolua junto com a loja e entregue cada vez mais
+          valor!
+        </p>
+        <h3 id="regras">Definição de Regras de Negócio</h3>
+        <p>
+          O processo de definição de regras de negócio começa com o entendimento do funcionamento da
+          empresa, reunindo as partes interessadas, como os times de vendas e marketing, pra captar
+          como o negócio opera e quais respostas eles esperam dos dados, garantindo que o BI reflita
+          suas prioridades. Em seguida, identificamos as fontes de dados disponíveis que vão
+          alimentar o sistema, como os históricos de transações do ERP em CSVs, que trazem vendas de
+          diferentes canais, o CRM com os cadastros atuais dos clientes em um arquivo único, e os
+          dados de campanhas do Google Ads, extraídos via API a partir de 2024 com métricas de
+          desempenho – cada uma oferecendo uma peça essencial pro quebra-cabeça.
+        </p>
+        <p>
+          Com essas informações em mãos, trabalhamos junto com as equipes pra criar regras que
+          traduzam os processos do dia a dia em diretrizes pros dados, definindo, por exemplo, o que
+          torna uma venda válida ou como classificar clientes e campanhas, sempre alinhando com o
+          que o negócio precisa. Esse trabalho colaborativo segue com a validação dessas regras
+          pelas partes envolvidas, ajustando o que for necessário pra refletir a realidade da
+          empresa, e tudo é registrado de forma simples pra guiar o desenvolvimento.
+        </p>
+        <p>
+          Por fim, essas regras ganham vida no ETL, onde os dados brutos são transformados em
+          tabelas organizadas que respondem às perguntas levantadas, num esforço conjunto que
+          entrega valor inicial e evolui com o tempo. Esse mesmo fluxo se aplica a qualquer Data
+          Mart – em um projeto de RH, por exemplo, seriam os profissionais de recursos humanos
+          definindo o que importa, como turnover ou status de funcionários, provando que o segredo é
+          envolver quem conhece o problema pra construir algo que realmente resolva as dores do
+          negócio.
+        </p>
+        <h3 id="modelagem">Modelagem do Data Mart</h3>
+        <p>
+          Na modelagem do Data Mart, definimos as tabelas e relações que acreditamos atender às
+          principais perguntas do negócio, entregando valor imediato pros times de vendas e
+          marketing da loja de pesca. Esse projeto não só fornece insights com os dados atuais, como
+          faturamento por canal ou desempenho de campanhas, mas também ajuda a identificar lacunas
+          existentes nas informações, sugerindo mudanças e adições pra enriquecer o BI ao longo do
+          tempo. Com isso, o modelo do banco de dados segue o esquema apresentado abaixo,
+          estruturado pra suportar análises rápidas e evoluir com as necessidades da empresa.
+        </p>
+        <figure>
+          <img src="./images/etl/db_diagram.png" alt="modelagem dados" class="img_menor" />
+          <figcaption class="fonte_imagem">Diagrama criado pelo autor no dbdiagram.io</figcaption>
+        </figure>
+        <h3 id="processo_etl">Processo ETL Histórico</h3>
+        <h3 id="extracao">Extração dos Dados</h3>
+        <p>
+          Na etapa de extração dos dados, coletamos as informações brutas das fontes da loja de
+          pesca pra realizar a primeira carga histórica no Data Mart. Isso envolve os 27 arquivos
+          CSV do ERP com o histórico de vendas de janeiro de 2023 a março de 2025, o arquivo CSV do
+          CRM com os cadastros atuais dos clientes, e os dados de campanhas do Google Ads, extraídos
+          via API e cobrindo o período a partir de 2024. Com Python, lemos os CSVs locais e fazemos
+          uma chamada HTTP ao MockAPI pra trazer tudo pra um formato que possamos transformar e
+          carregar no SQL Server, garantindo que os dados históricos estejam prontos pra análise
+          inicial.
+        </p>
+        <figure>
+          <img src="./images/etl/code001.png" alt="demo codigo 001" class="img_menor" />
+          <figcaption class="fonte_imagem">Imagem criada pelo autor no vscode</figcaption>
+        </figure>
+        <h3 id="transformacao">Transformação e Limpeza</h3>
+        <p>
+          Na etapa de transformação e limpeza, preparamos os dados brutos da loja de pesca pro Data
+          Mart, aplicando regras de negócio e tratando possíveis inconsistências num único processo.
+          Isso inclui garantir que campanhas do Google Ads só apareçam pro e-commerce, remover
+          duplicatas ou vendas com valores inválidos, e definir o que fazer com dados faltantes –
+          como marcar clientes sem identificação como 'Avulso' ou excluir registros incompletos.
+          Também padronizamos formatos, como converter datas pra um padrão consistente, assegurando
+          que os DataFrames estejam alinhados ao modelo Star Schema e prontos pra análises de vendas
+          e marketing. Mesmo com dados históricos gerados de forma controlada, simulamos cenários
+          comuns pra demonstrar boas práticas de ETL.
+        </p>
+        <figure>
+          <img src="./images/etl/code002.png" alt="demo codigo 002" class="img_menor" />
+          <figcaption class="fonte_imagem">Imagem criada pelo autor no vscode</figcaption>
+        </figure>
+        <h3 id="carga_sql">Carga no SQL Server</h3>
+        <p>
+          Na etapa de carga, configuramos o Data Mart no SQL Server criando o banco Anzol_Fishing
+          diretamente no SSMS. Usando a opção 'New Database', adicionamos o banco e definimos as
+          tabelas Fato_Vendas, Dim_Produtos, Dim_Clientes e Dim_Campanhas com scripts SQL, incluindo
+          chaves primárias e estrangeiras. Optamos por não incluir uma Dim_Tempo no SQL Server, já
+          que no Power BI é boa prática criar essa dimensão dinamicamente com DAX ou Power Query a
+          partir da coluna data do Fato_Vendas. Por fim, usamos Python com sqlalchemy pra conectar
+          ao banco e carregar os DataFrames correspondentes, finalizando o ETL histórico e
+          preparando os dados pras análises do time.
+        </p>
+        <figure>
+          <img src="./images/etl/sql_server.gif" alt="criacao sql server" class="img_etl" />
+          <figcaption class="fonte_imagem">GIF criado pelo autor no SSMS</figcaption>
+        </figure>
+        <p>Carregando os dados no DB</p>
+        <figure>
+          <img src="./images/etl/sql_server2.gif" alt="criacao sql server" class="img_etl" />
+          <figcaption class="fonte_imagem">GIF criado pelo autor no vscode & SSMS</figcaption>
+        </figure>
+        <p>
+          Com o Data Mart estruturado, já podemos acessar os dados de forma eficaz para extrair
+          insights e informações que auxiliam na tomada de decisão. Uma query simples já permite
+          visualizar os dados sob diferentes perspectivas, como esta que mostra a receita gerada por
+          cada campanha para a loja. A partir daí, é possível expandir análises e integrar com
+          ferramentas como o Power BI para relatórios dinâmicos. Porém na próxima etapa vamos
+          garantir que os dados gerados diariamente sejam adicionados a esse Data Mart e fornecendo
+          informação contínua a equipe de análises.
+        </p>
+        <figure>
+          <img src="./images/etl/code003.png" alt="demo code" class="img_menor" />
+          <figcaption class="fonte_imagem">Imagem criada pelo autor no SSMS</figcaption>
+        </figure>
+        <h3 id="etl_diario">Processo ETL diário</h3>
+        <p>
+          Com a carga histórica inicial concluída, o próximo passo é estabelecer um processo ETL
+          diário para manter o Data Mart atualizado com as novas vendas da loja. No cenário
+          simulado, os sistemas da loja (como ERPs ou CRMs) finalizam o dia às 00:00, gerando
+          relatórios diários no formato CSV com os dados de vendas do dia anterior. Esses arquivos,
+          nomeados como vendas_DD_MM_YYYY.csv, são disponibilizados numa pasta na rede, prontos para
+          processamento.
+        </p>
+        <p>
+          Para a orquestração automatizada deste fluxo, utilizamos o Apache Airflow. Acreditamos que
+          a escolha da ferramenta ideal deve ser colaborativa, considerando as preferências e
+          necessidades da empresa ou equipe. Embora Apache Hop e Pentaho ofereçam vantagens como
+          interfaces gráficas e menor necessidade de código, o Airflow foi a escolha para este
+          exemplo. Uma DAG (Directed Acyclic Graph) é configurada para observar a pasta de novos
+          arquivos e, às 02:00, iniciar o processamento. A DAG replica o mesmo pipeline da carga
+          histórica:
+        </p>
+        <ol class="padd_bottom">
+          <li>Detecção: Identifica o novo CSV gerado pelo sistema</li>
+          <li>
+            Tratamento e Limpeza: Lê o arquivo, aplica as regras de negócio (ex.: substituição de
+            cliente_id inválidos por AVULSO, ajuste de campanha_id para IDs válidos de
+            Dim_Campanhas), e padroniza os dados.
+          </li>
+          <li>
+            Carga: Adiciona os dados tratados ao banco Anzol_Fishing, atualizando a tabela
+            Fato_Vendas e, se necessário, as dimensões existentes.
+          </li>
+        </ol>
+        <p>
+          Esse processo garante que o Data Mart no SQL Server (Anzol_Fishing) receba continuamente
+          os dados mais recentes, mantendo a integridade do modelo Star Schema.
+        </p>
+        <h3 id="loc">Localização</h3>
+        <p>
+          Como mencionado, em cada final de jornada os arquivos são salvos nas localidades
+          escolhidas para permanecerem a espera da próxima atualização
+        </p>
+        <figure>
+          <img
+            src="./images/etl/etl_diario.png"
+            alt="pasta com os arquivos para ETL"
+            class="img_menor"
+          />
+          <figcaption class="fonte_imagem">Imagem criada pelo autor no windows explorer</figcaption>
+        </figure>
+        <h3 id="airflow">Apache Airflow</h3>
+        <p>
+          O Apache Airflow é uma plataforma de orquestração de fluxos de trabalho que será usada
+          para gerenciar o ETL incremental no projeto. Ele vai monitorar a pasta
+          D:/Projetos/etl/etl_process/dags/data e, todo dia às 02:00 da manhã, verificar se há novos
+          arquivos CSV (clientes_DD_MM_YYYY.csv e vendas_DD_MM_YYYY.csv). A DAG etl_diario, agendada
+          com schedule_interval='0 2 * * *', lê esses arquivos usando o execution_date (via {{
+          ds_nodash }}) pra identificar os CSVs do dia anterior, filtra registros novos com base em
+          cliente_id e venda_id, e faz a adição incremental nas tabelas Dim_Clientes e Fato_Vendas
+          do banco Anzol_Fishing. Assim, o Airflow automatiza o processo, garantindo que apenas
+          dados novos sejam carregados de forma eficiente e confiável.
+        </p>
+        <figure>
+          <img src="./images/etl/sql_server3.gif" alt="airflow DAGs" class="img_etl" />
+          <figcaption class="fonte_imagem">GIF criado pelo autor no Apache Airflow</figcaption>
+        </figure>
+        <p>
+          Com a tarefa ativada, ela seguirá os parâmetros configurados para executar o script no
+          horário definido, monitorando o processo de extração dos dados das pastas, aplicando as
+          regras de negócios estipuladas e carregando os dados novos no nosso Data Mart de vendas e
+          marketing.
+        </p>
+        <figure>
+          <img
+            src="./images/etl/sql_server4.gif"
+            alt="airflow processo executnado"
+            class="img_etl"
+          />
+          <figcaption class="fonte_imagem">
+            GIF criado pelo autor no Apache Airflow & SQL Server
+          </figcaption>
+        </figure>
+        <p>
+          Como pudemos observar, antes tínhamos 5.848 clientes cadastrados no banco de dados,
+          provenientes dos dados históricos. Após a primeira carga dos novos dados diários, o número
+          subiu para 5.854. O mesmo ocorreu com o número total de vendas, que antes era 11.104 e,
+          após o incremento, passou para 11.125.
+        </p>
+        <h3 id="bi">Disponibilização para BI</h3>
+        <p>
+          Para garantir uma análise contínua e atualizada, implementar um processo de ETL robusto
+          que extrai dados de diferentes fontes, como sistemas CRM e ERP de vendas é fundamental
+          para municiar o time de Business Intelligence (BI). Assim garantimos que eles tenham
+          acesso a informações frescas e precisas para apoiar decisões estratégicas. O processo
+          garante que a base de dados esteja sempre atualizada e alinhada com os indicadores de
+          desempenho da organização.
+        </p>
+        <h3 id="powerbi">Integração com Power BI</h3>
+        <p>
+          A integração com o Power BI proporciona uma visualização clara e acessível dos dados
+          processados. Após o tratamento e carregamento dos dados no Data Mart, podemos nos conectar
+          diretamente com o Power BI, permitindo que os analistas e gestores visualizem tendências,
+          oportunidades e corrigir lacunas no sistema. Essa integração facilita a análise dinâmica
+          de vendas e marketing, com dashboards interativos que ajudam o time a monitorar KPIs e
+          realizar tomadas de decisões mais ágeis e informadas. Com o Power BI, conseguimos
+          transformar grandes volumes de dados em insights valiosos de forma simples e eficaz.
+        </p>
+        <figure>
+          <img src="./images/etl/powerbi1.gif" alt="conexao sql e power bi" class="img_menor" />
+          <figcaption class="fonte_imagem">GIF criado pelo autor no Power BI</figcaption>
+        </figure>
+        <h3 id="dashboards">Criação de Relatórios e Dashboards</h3>
+        <p>
+          Este projeto tem como principal objetivo demonstrar o funcionamento completo de um fluxo
+          ETL (Extração, Transformação e Carga) em um contexto de Business Intelligence. Iniciado
+          com a extração de dados de fontes diversas e passando por um processo robusto de
+          transformação e integração, o foco está em garantir que os dados estejam prontos e
+          disponíveis para análise em ferramentas de BI, como o Power BI. Ao longo dessa jornada,
+          diversos processos de tratamento e transformação de dados foram implementados, visando
+          limpar, integrar e organizar as informações de forma eficiente. Essa etapa é fundamental
+          para que os dados possam ser analisados de forma precisa e estratégica.
+        </p>
+        <figure>
+          <img src="./images/etl/powerbi2.gif" alt="uso dos dados no power bi" class="img_etl" />
+          <figcaption class="fonte_imagem">GIF criado pelo autor no Power BI</figcaption>
+        </figure>
+        <p>
+          No entanto, a criação de relatórios e dashboards, neste ponto do projeto, não visa
+          apresentar análises finais ou definitivas. O objetivo é mostrar como os dados são
+          estruturados e carregados de forma a permitir insights rápidos e prontos para consumo.
+          Portanto, as demonstrações dos relatórios apresentados até agora são apenas uma etapa
+          intermediária desse processo contínuo. Eles fornecem uma visão geral das informações, mas
+          as análises mais profundas e detalhadas, com base em dados consolidados e históricos,
+          seriam o próximo passo em um ambiente de desenvolvimento contínuo.
+        </p>
+        <figure>
+          <img src="./images/etl/powerbi3.gif" alt="uso dos dados no power bi" class="img_etl" />
+          <figcaption class="fonte_imagem">GIF criado pelo autor no Power BI</figcaption>
+        </figure>
+        <h3 id="insights">Insights e Recomendações</h3>
+        <p>
+          A partir das demonstrações apresentadas, já podemos observar insights valiosos que começam
+          a moldar uma compreensão mais clara do negócio e a proporcionar um controle mais efetivo
+          sobre os processos. Indicadores como o número total de vendas, a variedade de produtos
+          trabalhados pela loja, o ticket médio e os gastos com marketing fornecem uma visão macro
+          do que está acontecendo, porém com a dinamica e flexibilidade de ferramentas de BI ao
+          reduzir a granularidade podemos fazer uma análise mais profunda em análises futuras.
+        </p>
+        <p>
+          É possível perceber uma queda significativa nas vendas durante os meses de Novembro,
+          Dezembro e Janeiro. Considerando o contexto de uma loja especializada em pesca, podemos
+          atribuir essa sazonalidade à Piracema, um período no Brasil em que a pesca é proibida para
+          a desova dos peixes. Esse insight mostra como fatores externos podem impactar diretamente
+          o comportamento de compra dos consumidores.
+        </p>
+        <p>
+          Por outro lado, há um claro crescimento nas vendas nos meses de Março, Abril e Maio,
+          indicando que os pescadores retornam às atividades, o que reflete o ciclo natural da pesca
+          e confirma a sazonalidade observada.
+        </p>
+        <p>
+          Esses dados também abrem portas para explorar novas oportunidades de negócios. Um exemplo
+          interessante é a categoria "Kit Pesqueiros", que se destaca como uma das melhores
+          categorias da loja, tendo em vista que eles permanecem abertos durante o ano inteiro. Em
+          períodos como a Piracema, investir nessa categoria pode ser uma estratégia inteligente
+          para o time de Marketing, ajudando a mitigar a queda de vendas causada pela sazonalidade
+          da pesca.
+        </p>
+        <p>
+          Outro ponto importante é a relação entre os gastos com marketing e as vendas. Os gráficos
+          indicam que não há uma correlação positiva entre o quanto a empresa gasta em marketing e o
+          aumento nas vendas, o que sugere que o investimento em marketing pode ser otimizado.
+          Idealmente, a expectativa seria que, à medida que os gastos aumentam, as vendas também
+          crescessem de forma proporcional. Esse é um indicativo de que as campanhas de marketing
+          podem não estar gerando os resultados esperados e merecem uma análise mais detalhada para
+          identificar áreas de melhoria.
+        </p>
+
+        <p>
+          Por fim, ao analisar o desempenho dos três canais de vendas da loja, notamos que o canal
+          3, que corresponde ao e-commerce, apresenta o melhor desempenho em comparação às lojas
+          físicas. Esse é um sinal claro de que o e-commerce é uma área estratégica que a loja pode
+          explorar ainda mais, investindo em aprimoramentos e marketing direcionado para esse canal,
+          com o objetivo de impulsionar ainda mais as vendas.
+        </p>
+        <figure>
+          <img src="./images/etl/powerbi4.gif" alt="uso dos dados no power bi" class="img_etl" />
+          <figcaption class="fonte_imagem">GIF criado pelo autor no Power BI</figcaption>
+        </figure>
+        <p>
+          Os dados, sem dúvida, oferecem informações valiosas, mas a ausência deles também possui um
+          valor significativo, na minha opinião. Ao permitir que um time de análise tenha acesso a
+          esses dados, é possível gerar sugestões valiosas sobre quais informações deveriam ser
+          coletadas, além de identificar áreas de melhoria nos sistemas de ERP e CRM.
+        </p>
+
+        <p>
+          Por exemplo, atualmente, o CRM não registra o cliente em todas as compras. Muitas vendas
+          têm o campo cliente_id preenchido como 'AVULSO', o que indica que o vendedor não associou
+          um cliente à venda. Esse é um ponto de melhoria para o sistema: registrar dados
+          adicionais, como o sexo e o endereço do cliente, poderia permitir uma análise mais
+          detalhada do perfil do consumidor e possibilitar estratégias de marketing mais eficazes.
+        </p>
+        <p>
+          Além disso, o sistema de ERP também apresenta lacunas importantes. Ele não registra qual
+          vendedor fez cada venda, o que dificulta o controle de performance e a identificação de
+          áreas que precisam de aprimoramento. Um sistema mais robusto poderia registrar esses
+          dados, permitindo não apenas o monitoramento do desempenho individual dos vendedores, mas
+          também a identificação daqueles que necessitam de treinamentos adicionais, caso não
+          estejam registrando as vendas corretamente citando um exemplo.
+        </p>
+        <h3 id="desafios">Desafios e Aprendizados</h3>
+        <p>
+          Implementar um ETL incremental com Apache Airflow e SQL Server foi uma jornada
+          desafiadora, desde o início enfrentei obstáculos que me obrigaram a mergulhar fundo em
+          ferramentas novas e ambientes complexos, mas cada dificuldade trouxe um aprendizado
+          valioso que solidificou meu entendimento sobre orquestração de dados e integração de
+          sistemas.
+        </p>
+        <p>
+          Configurar o ambiente do Airflow no Docker foi um pouco trabalhoso, como o Apache Airflow
+          não roda nativamente no windows e não queria usar Máquina Virtual para contornar esse
+          problema, resolvi abordar técnicas mais modernas que temos hoje em dia, no caso o Docker +
+          WSL2
+        </p>
+        <p>
+          Outro grande obstáculo foi fazer o Airflow se conectar ao SQL Server. O erro "Can't open
+          lib 'ODBC Driver 17 for SQL Server' : file not found" apareceu várias vezes, me forçando a
+          reconstruir a imagem repetidamente. Descobri que o pyodbc sozinho não bastava – precisava
+          do driver ODBC instalado no container e de uma configuração precisa com
+          host.docker.internal pra alcançar o SQL Server no Windows.
+        </p>
+        <h3 id="conclusao">Conclusão</h3>
+        <p>
+          Por fim, agradeço a quem teve a paciência de acompanhar todo o projeto. Meu objetivo foi
+          ajudar quem tem uma ideia mais abstrata de ETL e pipelines a entender esses processos na
+          prática. Existem várias formas de resolver o mesmo problema, e acredito que cada projeto
+          de BI exige uma abordagem específica, dependendo do nível de maturidade em que a empresa
+          se encontra.
+        </p>
+        <p>Notas finais:</p>
+        <ul class="padd_bottom">
+          <li>
+            Os dados usados neste projeto misturam dados reais, obtidos por web scraping em sites de
+            lojas de pesca, com dados sintéticos.
+          </li>
+          <li>
+            Disponibilizarei os dados em um repositório no meu GitHub neste endereço:
+            <a
+              href="https://github.com/leandrobvs/SQL-PowerBI-Excel/tree/main/etl_process"
+              style="color: #007bff; text-decoration: underline"
+              target="_blank"
+              >Link</a
+            >
+          </li>
+        </ul>
+        <p>Obrigado.</p>
+      </div>
+    </div>
+    <!-- Start Footer -->
+    <footer>
+      <div class="footer">
+        <a lang="pt-br" href="#menu"><p>de volta ao topo</p></a>
+        <p lang="pt-br">design e desenvolvimento por Leandro Arai</p>
+      </div>
+    </footer>
+    <!-- End ETL Project -->
+    <button id="floating-nav-btn">☰ Sumário</button>
+    <script src="./main.js"></script>
+  </body>
+</html>
