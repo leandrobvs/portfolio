@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JSQEXKB8GT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'G-JSQEXKB8GT');
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Análise Financeira | Portfolio</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,700;1,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Start Navigation -->
+    <nav class="navbar nav_etl">
+      <ul id="menu" class="menu">
+        <li class="hover-underline-animation" lang="pt-br">
+          <a href="index.html#about-me">Sobre Mim</a>
+        </li>
+        <li class="hover-underline-animation" lang="en">
+          <a href="index.html#about-me">About Me</a>
+        </li>
+        <li class="hover-underline-animation" lang="pt-br">
+          <a href="index.html#portfolio">Portfólio</a>
+        </li>
+        <li class="hover-underline-animation" lang="en">
+          <a href="index.html#portfolio">Portfolio</a>
+        </li>
+        <li class="hover-underline-animation" lang="pt-br">
+          <a href="index.html#curriculum">Curriculum</a>
+        </li>
+        <li class="hover-underline-animation" lang="en">
+          <a href="index.html#curriculum">Curriculum</a>
+        </li>
+      </ul>
+    </nav>
+    <!-- End Nav -->
+    <!-- Start Plastyk project -->
+    <div class="main-content">
+      <div class="sumario_project">
+        <div class="etl_title">
+          <img src="./images/plastyk/cover.png" alt="project logo plastyk" />
+          <h1>Análise Financeira - Plastyk Ind.</h1>
+        </div>
+        <div class="sumario">
+          <h2 id="sumario">Sumário</h2>
+          <ul>
+            <li><a href="#problema">Introdução ao Problema</a></li>
+            <li>
+              <a href="#demo-dash">Demonstrativo Dashboard</a>
+              <ul>
+                <li><a href="#preditiva">Análises preditivas</a></li>
+              </ul>
+            </li>
+            <li><a href="#link">Link: Dashboard no Power BI Service</a></li>
+            <li><a href="#github">Repositório Github</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- end summary -->
+    <!-- start content plastyk -->
+    <div class="corpo_etl_project">
+      <div class="etl_content">
+        <h3 id="problema">Introdução ao Problema</h3>
+        <p>
+          A Plastyk Ind., uma empresa consolidada no setor de manufatura de produtos plásticos,
+          enfrenta o desafio de compreender de forma detalhada a performance financeira dos últimos
+          anos. Diante de um mercado cada vez mais competitivo, a empresa busca identificar os
+          principais fatores que impactam seu desempenho e quais estratégias podem ser adotadas para
+          alavancar os resultados futuros.
+        </p>
+        <p>
+          Para isso, a Plastyk Ind. nos chamou para analisar os dados com o objetivo de realizar uma
+          análise abrangente que forneça:
+        </p>
+        <ul class="padd_bottom">
+          <li>
+            Indicadores-chave de desempenho (KPIs): como receita, margem bruta, lucro líquido e
+            evolução dos custos.
+          </li>
+          <li>
+            Performance de vendas: identificação de tendências, sazonalidades e os principais
+            produtos e mercados que impulsionam o crescimento.
+          </li>
+          <li>
+            Análises preditivas: projeções para os próximos períodos com base nos dados históricos,
+            para apoiar decisões estratégicas.
+          </li>
+        </ul>
+        <p>
+          Com essas informações, a Plastyk Ind. espera obter insights valiosos para otimizar seus
+          processos, melhorar a rentabilidade e reforçar sua posição no mercado. O sucesso dessa
+          análise depende da utilização de ferramentas e técnicas avançadas de análise de dados,
+          capazes de transformar os dados financeiros e de vendas em um guia estratégico para a
+          tomada de decisões.
+        </p>
+        <h3 id="demo-dash">Demonstrativo Dashboard</h3>
+        <figure>
+          <img src="./images/plastyk/dash001.png" alt="dashboard_final" class="img_etl" />
+          <figcaption class="fonte_imagem">imagem criada pelo autor no Power BI</figcaption>
+        </figure>
+        <p>
+          A ideia aqui foi montar um dashboard mais dinamico, sem muitas páginas mas que mude os
+          assuntos dinamicamente conforme os assuntos são trocados no canto superior. Na imagem
+          podemos ver que Vendas estão selecionadas então os gráficos são todos adaptados utilizando
+          os dados sobre as Vendas.
+        </p>
+        <p>
+          Foram deixados os Indicadores mais importantes no topo do dashboard e já informa esses
+          valores de maneira limpa. Como a empresa quer entender a performance financeira nos
+          últimos anos foram colocados todos os anos dísponiveis no dashboard.
+        </p>
+        <figure>
+          <img
+            src="./images/plastyk/sample001.gif"
+            alt="dashboard_demostrativo"
+            class="img_menor"
+          />
+          <figcaption class="fonte_imagem">gif criado pelo autor no Power BI</figcaption>
+        </figure>
+        <p>
+          Como primeiro gráfico, foi utilizado o gráfico de cascata, que acredito ser uma ótima
+          escolha, pois fornece muitas informações sem ocupar muito espaço. Ele permite observar
+          facilmente a tendência de crescimento ou redução dos dados apresentados. Nesse caso,
+          utilizamos o gráfico para comparar as vendas acumuladas do ano com o acumulado do ano
+          anterior. Além disso, podemos utilizar a função de* Drill Down*, que permite navegar pelos
+          dados e identificar, como no exemplo a seguir, quais países foram mais responsáveis pelo
+          crescimento das vendas em um mês específico.
+        </p>
+        <figure>
+          <img
+            src="./images/plastyk/sample002.gif"
+            alt="dashboard_demostrativo"
+            class="img_menor"
+          />
+          <figcaption class="fonte_imagem">gif criado pelo autor no Power BI</figcaption>
+        </figure>
+        <p>
+          Nesse caso, a Coreia do Sul foi a principal responsável por alavancar as vendas nos dois
+          melhores meses da empresa: agosto e novembro.
+        </p>
+        <p>
+          Em contraste o gráfico Tree Map foi elaborado pensando em demonstrar os países que tem as
+          piores performances com a empresa, e podemos também investigar clicando neles que o
+          gráfico de Cascata nos fornecera mais informações detalhadas.
+        </p>
+        <figure>
+          <img
+            src="./images/plastyk/sample003.gif"
+            alt="dashboard_demostrativo"
+            class="img_menor"
+          />
+          <figcaption class="fonte_imagem">gif criado pelo autor no Power BI</figcaption>
+        </figure>
+        <p>
+          Identificamos que a Argentina apresenta os menores volumes de pedidos dos nossos
+          materiais. Ao analisar mais detalhadamente, observamos que janeiro contribuiu
+          significativamente para essa queda acentuada em comparação ao ano anterior. Foi
+          identificado que o material PET deixou de ser adquirido no ano de 2021. Apesar de uma
+          tentativa de recuperação entre os meses de março e junho, o restante do ano apresentou uma
+          queda constante. Recomendamos que a empresa investigue as causas dessa variação negativa e
+          busque fortalecer as relações com os clientes na Argentina.
+        </p>
+        <p>
+          A empresa fornece quatro tipos de plásticos. No gráfico a seguir, destacamos o desempenho
+          de cada um. O Polietileno Tereftalato (PET) é o material mais adquirido, enquanto o
+          Policloreto de Vinila (PVC) é o que gera maior lucro. Essa análise auxilia na compreensão
+          da demanda de cada material e em quais a empresa deve concentrar seus esforços. Por fim,
+          um ponto de atenção para a direção é avaliar se vale a pena continuar investindo na
+          produção de Poliestireno Expandido (EPS).
+        </p>
+        <figure>
+          <img
+            src="./images/plastyk/sample004.gif"
+            alt="dashboard_demostrativo"
+            class="img_menor"
+          />
+          <figcaption class="fonte_imagem">gif criado pelo autor no Power BI</figcaption>
+        </figure>
+        <p>
+          Por fim, nesta página do dashboard, criamos um gráfico para localizar as contas de cada
+          cliente em relação ao percentual de margem bruta, conforme a opção selecionada. No exemplo
+          apresentado, podemos identificar os clientes que estão acima da média no percentual de
+          margem bruta, mas abaixo da média em vendas. Esses são clientes estratégicos para a
+          empresa direcionar esforços e tentar alavancar seus números.
+        </p>
+        <figure>
+          <img
+            src="./images/plastyk/sample005.gif"
+            alt="dashboard_demostrativo"
+            class="img_menor"
+          />
+          <figcaption class="fonte_imagem">gif criado pelo autor no Power BI</figcaption>
+        </figure>
+        <p>
+          Com o gráfico configurado dessa maneira, é possível aplicar zoom nas áreas mais
+          relevantes, permitindo que as pessoas analisem detalhes específicos para tomar as decisões
+          mais apropriadas para cada situação.
+        </p>
+        <h3 id="preditiva">Análises Preditivas</h3>
+        <p>
+          Na página seguinte, foram realizadas três análises com projeções para auxiliar a empresa
+          na elaboração do planejamento para o início de 2022.
+        </p>
+        <p>
+          O primeiro gráfico apresenta o cálculo da projeção linear para a receita do mês seguinte.
+          A empresa encerrou dezembro de 2021 com uma receita de 18 milhões e 404 mil. De acordo com
+          as projeções, espera-se que janeiro de 2022 registre uma receita de 19 milhões e 329 mil.
+        </p>
+        <figure>
+          <img
+            src="./images/plastyk/sample006.gif"
+            alt="dashboard_demostrativo"
+            class="img_menor"
+          />
+          <figcaption class="fonte_imagem">gif criado pelo autor no Power BI</figcaption>
+        </figure>
+        <p>
+          A próxima análise foi realizada utilizando inteligência artificial, mais especificamente o
+          modelo de previsão Exponential Smoothing (ESM). O objetivo é fornecer à empresa uma
+          estimativa da quantidade total de pedidos para o primeiro trimestre do ano, auxiliando na
+          avaliação da compra de matéria-prima necessária para a produção dos materiais.
+        </p>
+        <figure>
+          <img
+            src="./images/plastyk/sample007.gif"
+            alt="dashboard_demostrativo"
+            class="img_menor"
+          />
+          <figcaption class="fonte_imagem">gif criado pelo autor no Power BI</figcaption>
+        </figure>
+        <p>
+          Por fim, apresentamos uma tabela de sensibilidade que analisa a variação do custo de
+          produção em relação à receita. Essa tabela mostra como um aumento ou diminuição nos custos
+          dos produtos pode impactar o percentual de margem bruta, bem como o efeito de uma variação
+          na receita sobre esse mesmo indicador.
+        </p>
+        <figure>
+          <img
+            src="./images/plastyk/sensibilidade.png"
+            alt="dashboard_demostrativo"
+            class="img_menor"
+          />
+          <figcaption class="fonte_imagem">gif criado pelo autor no Power BI</figcaption>
+        </figure>
+        <h3 id="link">Link: Dashboard no Power BI Service</h3>
+        <a
+          href="https://app.powerbi.com/view?r=eyJrIjoiYTQ3ZDgxMTAtNjZiNi00ZWYyLTg5MzItNmUxNjlmYTQ5NzQ0IiwidCI6ImU3ODllZDJmLWQ3YTUtNDJlMy1iODllLWJlOGE4YjJjZTY5YSJ9"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="botao-github"
+        >
+          Ver no Power BI Service
+        </a>
+        <h3 id="github">Repositório Github</h3>
+        <a
+          href="https://github.com/leandrobvs/SQL-PowerBI-Excel/tree/main/powerbi_analise_financeira"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="botao-github padd_bottom"
+        >
+          Ver no GitHub
+        </a>
+      </div>
+    </div>
+    <!-- End plastyk Project -->
+    <button id="floating-nav-btn">☰ Sumário</button>
+    <script src="./main.js"></script>
+  </body>
+</html>
